@@ -4,7 +4,8 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   session = require('express-session'),
   massive = require('massive'),
-  getCard = require('./cardController')
+  getCard = require('./cardController'),
+  getInfo = require('./infoController')
 
 
 const app = express();
@@ -25,5 +26,5 @@ app.use(session({
 app.use(express.static(`${__dirname}/../build`))
 
 getCard(app)
-
+getInfo(app)
 app.listen(process.env.SERVER_PORT, () => { console.log(`Server listening on port ${process.env.SERVER_PORT}`) })

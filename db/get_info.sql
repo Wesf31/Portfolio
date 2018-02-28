@@ -1,0 +1,1 @@
+SELECT infopageheader, infopagetextbody, smallbox1header, smallbox1text, smallbox2header, smallbox2text from info order by infoid desc limit 1
