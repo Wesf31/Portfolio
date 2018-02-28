@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import axios from 'axios';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import { getCardData } from './../ducks/reducers/resultsReducer'
 
 
 const DisplayCard = ({
@@ -56,4 +59,8 @@ DisplayCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DisplayCard)
+const mapStateToProps = state => ({
+  cardData: state.resultsReducer.cardData,
+})
+
+export default withRouter((connect(mapStateToProps, { getCardData })(withStyles(styles)(DisplayCard))))

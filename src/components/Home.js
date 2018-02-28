@@ -2,14 +2,15 @@ import React from 'react'
 import { Typography, withStyles } from 'material-ui'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import DisplayCard from './displayCard'
 import { getCardData } from './../ducks/reducers/resultsReducer'
 
 
 const Home = ({ classes, cardData }) => (
   <div>
     <div className={classes.background}>
-      <DisplayCard cardData={cardData} />
+      <Typography>
+       Home
+      </Typography>
     </div>
   </div>
 )
