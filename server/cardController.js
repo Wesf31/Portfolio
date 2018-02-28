@@ -1,6 +1,6 @@
 const getCard = async (req, res) => {
   const db = req.app.get('db')
-  await db.get_profile().then((response) => {
+  await db.get_card().then((response) => {
     res.status(200).send(response)
   })
 }
@@ -11,7 +11,7 @@ const createCard = async (req, res) => {
     name,
     uploadedFileCloudinayrUrl,
   } = req.body
-  await db.create_profile([name, uploadedFileCloudinayrUrl]).then((data) => {
+  await db.create_card([name, uploadedFileCloudinayrUrl]).then((data) => {
     res.status(200).send(data)
   }).catch((error) => {
     console.log(error)
@@ -24,7 +24,7 @@ const deleteCard = async (req, res) => {
   const {
     name,
   } = req.params
-  await db.delete_profile([name]).then((data) => {
+  await db.delete_card([name]).then((data) => {
     res.status(200).send(data)
   }).catch((error) => {
     console.log(error)
@@ -39,7 +39,7 @@ const updateCard = async (req, res) => {
     newName,
   } = req.body
 
-  await db.update_profile([newName, profilename]).then((data) => {
+  await db.update_card([newName, profilename]).then((data) => {
     res.status(200).send(data)
     console.log(data)
   }).catch((error) => {
