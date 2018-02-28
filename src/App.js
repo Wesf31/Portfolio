@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getCardData } from './ducks/reducers/resultsReducer'
 import router from './router/router'
+import NavBar from './components/NavBar'
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div >
+        <NavBar />
         {router}
       </div>
     );

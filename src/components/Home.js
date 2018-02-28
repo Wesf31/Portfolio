@@ -9,9 +9,6 @@ import { getCardData } from './../ducks/reducers/resultsReducer'
 const Home = ({ classes, cardData }) => (
   <div>
     <div className={classes.background}>
-      <Typography>
-       Home
-      </Typography>
       <DisplayCard cardData={cardData} />
     </div>
   </div>
