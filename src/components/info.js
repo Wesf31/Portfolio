@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { withStyles } from 'material-ui'
 
 class Info extends Component {
   constructor(props) {
@@ -45,12 +46,47 @@ class Info extends Component {
   }
 
   render() {
-    const infoJSX = (
-      <div className="Wrapper">
-        <div className="NavBar" />
-        <div className="Container-1">
-          <div className="InfoPage">
-            <div className="InfoPicture" />
+    const classes = this.props
+    // (<div className="Wrapper">
+    //   <div className="NavBar" />
+    //   <div className="Container-1">
+    //     <div className="InfoPage">
+    //       <div className="InfoPicture" />
+    //       <div className="InfoPageTextBody">
+    //         <p className="InfoPageHeader">
+    //           {this.state.InfoPageHeader}
+    //         </p>
+    //         <p className="InfoPageTextMain">
+    //           {this.state.InfoPageTextBody}
+    //         </p>
+    //       </div>
+    //     </div>
+    //   </div>
+    //   <div className="Container-2">
+    //     <div className="SmallBox1">
+    //       <p className="SmallBox1Header">
+    //         {this.state.SmallBox1Header}
+    //       </p>
+    //       <p className="SmallBox1Text">
+    //         {this.state.SmallBox1Text}
+    //       </p>
+    //     </div>
+    //     <div className="SmallBox2">
+    //       <p className="SmallBox2Header">
+    //         {this.state.SmallBox2Header}
+    //       </p>
+    //       <p className="SmallBox2Text">
+    //         {this.state.SmallBox2Text}
+    //       </p>
+    //     </div>
+    //   </div>
+    //  </div>)
+
+    return (
+      <div className={classes.wrapper}>
+        <div className={classes.container1}>
+          <div className={classes.infoPage}>
+            <div className={classes.infoPicture} />
             <div className="InfoPageTextBody">
               <textarea
                 className="InfoPageHeader"
@@ -94,52 +130,43 @@ class Info extends Component {
             <input type="submit" value="Save Changes" onClick={this.handleSubmit} />
           </div>
         </div>
-      </div>)
-    // (<div className="Wrapper">
-    //   <div className="NavBar" />
-    //   <div className="Container-1">
-    //     <div className="InfoPage">
-    //       <div className="InfoPicture" />
-    //       <div className="InfoPageTextBody">
-    //         <p className="InfoPageHeader">
-    //           {this.state.InfoPageHeader}
-    //         </p>
-    //         <p className="InfoPageTextMain">
-    //           {this.state.InfoPageTextBody}
-    //         </p>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="Container-2">
-    //     <div className="SmallBox1">
-    //       <p className="SmallBox1Header">
-    //         {this.state.SmallBox1Header}
-    //       </p>
-    //       <p className="SmallBox1Text">
-    //         {this.state.SmallBox1Text}
-    //       </p>
-    //     </div>
-    //     <div className="SmallBox2">
-    //       <p className="SmallBox2Header">
-    //         {this.state.SmallBox2Header}
-    //       </p>
-    //       <p className="SmallBox2Text">
-    //         {this.state.SmallBox2Text}
-    //       </p>
-    //     </div>
-    //   </div>
-    //  </div>)
-
-    return (
-      <div>
-        { infoJSX }
       </div>
     )
   }
+}
+
+const styles = {
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100vh',
+  },
+  container1: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    height: '70vh',
+  },
+  infoPage: {
+    width: '80%',
+    height: '90%',
+    display: 'flex',
+    flexFlow: 'row',
+    background: 'white',
+    borderRadius: '3px',
+    padding: '5px',
+  },
+  infoPicture: {
+    width: '50%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+  },
 }
 function mapStateToProps(state) {
   return {
     user: state.userData,
   }
 }
-export default connect(mapStateToProps)(Info)
+export default (withStyles(styles)(Info))
