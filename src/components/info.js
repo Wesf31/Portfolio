@@ -140,7 +140,8 @@ const styles = {
   },
   container1: {
     display: 'flex',
-    position: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
     width: '100%',
     height: '70vh',
   },

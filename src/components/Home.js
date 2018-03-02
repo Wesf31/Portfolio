@@ -4,14 +4,13 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCardData } from './../ducks/reducers/resultsReducer'
 import Info from './info'
+import NavBar from './NavBar'
 
 
 const Home = ({ classes, cardData }) => (
   <div>
     <div className={classes.background}>
-      <Typography>
-       Home
-      </Typography>
+      <NavBar />
     </div>
     <Info />
   </div>
