@@ -46,7 +46,7 @@ class Info extends Component {
   }
 
   render() {
-    const classes = this.props
+    const { classes } = this.props
     // (<div className="Wrapper">
     //   <div className="NavBar" />
     //   <div className="Container-1">
@@ -87,14 +87,14 @@ class Info extends Component {
         <div className={classes.container1}>
           <div className={classes.infoPage}>
             <div className={classes.infoPicture} />
-            <div className="InfoPageTextBody">
+            <div className={classes.infoPageTextBody}>
               <textarea
-                className="InfoPageHeader"
+                className={classes.infoPageHeader}
                 value={this.state.InfoPageHeader}
                 onChange={e => this.setState({ InfoPageHeader: e.target.value })}
               />
               <textarea
-                className="InfoPageTextMain"
+                className={classes.infoPageTextMain}
                 value={this.state.InfoPageTextBody}
                 onChange={e => this.setState({ InfoPageTextBody: e.target.value })}
               />
@@ -102,28 +102,24 @@ class Info extends Component {
             </div>
           </div>
         </div>
-        <div className="Container-2">
-          <div className="SmallBox1">
+        <div className={classes.container2}>
+          <div className={classes.smallBox}>
             <textarea
-              className="SmallBox1Header"
               value={this.state.SmallBox1Header}
               onChange={e => this.setState({ SmallBox1Header: e.target.value })}
             />
             <textarea
-              className="SmallBox1Text"
               value={this.state.SmallBox1Text}
               onChange={e => this.setState({ SmallBox1Text: e.target.value })}
             />
             <input type="submit" value="Save Changes" onClick={this.handleSubmit} />
           </div>
-          <div className="SmallBox2">
+          <div className={classes.smallBox}>
             <textarea
-              className="SmallBox2Header"
               value={this.state.SmallBox2Header}
               onChange={e => this.setState({ SmallBox2Header: e.target.value })}
             />
             <textarea
-              className="SmallBox2Text"
               value={this.state.SmallBox2Text}
               onChange={e => this.setState({ SmallBox2Text: e.target.value })}
             />
@@ -144,7 +140,7 @@ const styles = {
   },
   container1: {
     display: 'flex',
-    flexDirection: 'row',
+    position: 'center',
     width: '100%',
     height: '70vh',
   },
@@ -159,9 +155,39 @@ const styles = {
   },
   infoPicture: {
     width: '50%',
+    backgroundImage: "url('http://res.cloudinary.com/dhowdfbmx/image/upload/v1519022821/gksukdl1fn3um4g6ihzq.jpg')",
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
+  },
+  infoPageTextBody: {
+    display: 'flex',
+    width: '50%',
+    flexDirection: 'column',
+  },
+  infoPageHeader: {
+    height: '20%',
+    fontFamily: 'Hammersmith One',
+    fontSize: '50px',
+  },
+  infoPageTextMain: {
+    height: '80%',
+    fontFamily: 'Hammersmith One',
+  },
+  container2: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    alignContent: 'center',
+    width: '100%',
+    height: '20vh',
+  },
+  smallBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: 'white',
+    fontFamily: 'Hammersmith one',
   },
 }
 function mapStateToProps(state) {
