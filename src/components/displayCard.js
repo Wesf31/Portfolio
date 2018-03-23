@@ -8,6 +8,7 @@ import axios from 'axios';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { getCardData } from './../ducks/reducers/resultsReducer'
+import NavBar from './NavBar'
 
 
 const DisplayCard = ({
@@ -41,6 +42,7 @@ const DisplayCard = ({
 
   return (
     <div>
+      <NavBar />
       {card}
     </div>
   )
